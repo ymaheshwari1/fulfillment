@@ -16,4 +16,5 @@ export default interface UserState {
         name: string;
         value: object;
     };
+    pwaState: any;
 }

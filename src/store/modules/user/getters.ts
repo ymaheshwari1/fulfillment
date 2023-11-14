@@ -45,6 +45,10 @@ const getters: GetterTree <UserState, RootState> = {
     },  
     getCurrentMapping(state) {
         return JSON.parse(JSON.stringify(state.currentMapping))
+    },
+
+    getPwaState (state) {
+        return state.pwaState;
     }
 }
 export default getters;

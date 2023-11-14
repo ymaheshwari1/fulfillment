@@ -130,6 +130,7 @@
   "Missing shipping label": "Missing shipping label",
   "Next day": "Next day",
   "New mapping": "Nuevo mapeo",
+  "New version available, please update the app.": "New version available, please update the app.",
   "No Capacity": "Sin Capacidad",
   "No capacity sets the fulfillment capacity to 0, preventing any new orders from being allocated to this facility. Use the 'Reject all orders' option in the fulfillment pages to clear your facility's fulfillment queue. To add a fulfillment capacity to this facility, use the custom option.": "La falta de capacidad establece la capacidad de cumplimiento en 0, evitando que se asignen nuevos pedidos a esta instalación. Utiliza la opción 'Rechazar todos los pedidos' en las páginas de cumplimiento para eliminar la cola de cumplimiento de tu instalación. {space}Para agregar una capacidad de cumplimiento a esta instalación, utiliza la opción personalizada.",
   "No data available!": "¡No hay datos disponibles!",

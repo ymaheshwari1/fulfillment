@@ -120,13 +120,7 @@
 
       <hr />
 
-      <div class="section-header">
-        <h1>
-          {{ translate('App') }}
-          <p class="overline">{{ "Version: " + appVersion }}</p>
-        </h1>
-        <p class="overline">{{ "Built: " + getDateTime(appInfo.builtTime) }}</p>
-      </div>
+      <DxpAppVersionInfo />
 
       <section>
         <ion-card>
@@ -216,7 +210,7 @@ import OrderLimitPopover from '@/components/OrderLimitPopover.vue'
 
 export default defineComponent({
   name: 'Settings',
-  components: { 
+  components: {
     IonAvatar,
     IonButton,
     IonCard,
@@ -225,17 +219,17 @@ export default defineComponent({
     IonCardTitle,
     IonCardSubtitle,
     IonChip,
-    IonContent, 
-    IonHeader, 
+    IonContent,
+    IonHeader,
     IonIcon,
-    IonItem, 
-    IonLabel, 
+    IonItem,
+    IonLabel,
     IonMenuButton,
-    IonPage, 
+    IonPage,
     IonProgressBar,
-    IonSelect, 
+    IonSelect,
     IonSelectOption,
-    IonTitle, 
+    IonTitle,
     IonText,
     IonToggle,
     IonToolbar,

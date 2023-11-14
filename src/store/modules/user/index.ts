@@ -24,6 +24,10 @@ const userModule: Module<UserState, RootState> = {
         mappingType: '',
         name: '',
         value: {}
+      },
+      pwaState: {
+        updateExists: false,
+        registration: null,
       }
     },
     getters,

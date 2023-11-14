@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
-import './registerServiceWorker'
 import logger from './logger';
+import { showToast } from '@/utils'
 
 import { IonicVue } from '@ionic/vue';
 
@@ -57,6 +57,7 @@ const app = createApp(App)
     initialise,
     localeMessages,
     setUserLocale,
+    showToast
   });
 
 router.isReady().then(() => {
