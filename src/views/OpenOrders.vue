@@ -23,6 +23,7 @@
     </ion-header>
     
     <ion-content ref="contentRef" :scroll-events="true" @ionScroll="enableScrolling()" id="view-size-selector">
+      <div id="target"></div>
       <ion-searchbar class="searchbar" :value="openOrders.query.queryString" :placeholder="translate('Search orders')" @keyup.enter="updateQueryString($event.target.value)"/>
       <div v-if="openOrders.total">
         <div class="filters">
@@ -184,6 +185,7 @@ import { UserService } from '@/services/UserService';
 import { Actions, hasPermission } from '@/authorization'
 import OrderActionsPopover from '@/components/OrderActionsPopover.vue'
 import { isKit } from '@/utils/order'
+import { app } from '@/main';
 
 export default defineComponent({
   name: 'OpenOrders',
@@ -234,6 +236,13 @@ export default defineComponent({
   },
   async ionViewWillEnter() {
     this.isScrollingEnabled = false;
+
+    app.render({
+      template: `<ion-label class="toast">{{ store.getters["user/getCurrentFacility"].facilityName }}</ion-label>`,
+      props: ['store']
+    }, {
+      store: this.store
+    }, '#target')
   },
   methods: {
     getErrorMessage() {

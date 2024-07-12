@@ -1,9 +1,9 @@
-import { createApp } from 'vue'
+import { Component, createApp, h, Prop, render } from 'vue'
 import App from './App.vue'
 import router from './router';
 import logger from './logger';
 
-import { IonicVue } from '@ionic/vue';
+import { IonicVue, IonLabel } from '@ionic/vue';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
@@ -36,7 +36,7 @@ import { getConfig, getProductIdentificationPref, initialise, setProductIdentifi
 import localeMessages from '@/locales';
 import { addNotification, storeClientRegistrationToken } from '@/utils/firebase';
 
-const app = createApp(App)
+const app: any = createApp(App)
   .use(IonicVue, {
     mode: 'md',
     innerHTMLTemplatesEnabled: true
@@ -70,6 +70,37 @@ const app = createApp(App)
     getAvailableTimeZones
   });
 
+app.render = function(Component: Component, props: any, el: any) {
+  if (typeof el === 'string') {
+    el = document.querySelector(el)
+  }
+
+  if (!el) {
+    throw new Error('el not found')
+  }
+
+  if (props && {}.toString.call(props) !== '[object Object]') {
+    throw Error('props must be an object')
+  }
+
+  const childTree = h(Component, props) as any
+  childTree.appContext = app._context
+
+  // Creating a wrapper element here is clunky and ideally wouldn't be necessary
+  const div = document.createElement('div')
+  el.appendChild(div)
+
+  render(childTree, div)
+
+  return childTree.component.proxy
+}
+
+app.component('ion-label', IonLabel);
+
 router.isReady().then(() => {
   app.mount('#app');
 });
+
+export {
+  app
+}
